@@ -116,7 +116,97 @@
       }
     })
   </script>
-  
+<section class="book" id="book">
+  <div class="container flex_space">
+    <div class="text">
+      <h1><span>Book</span> Your Rooms</h1>
+    </div>
+    <div class="form">
+      <form class="grid" onsubmit="showAdvancedModal(event)">
+        <input id="arrival" type="date" required>
+        <input id="departure" type="date" required>
+        <input id="adults" type="number" min="1" placeholder="Adults" required>
+        <input id="children" type="number" min="0" placeholder="Children">
+        <input type="submit" style="cursor: pointer;" value="CHECK AVAILABILITY">
+      </form>
+    </div>
+  </div>
+</section>
 
+<div id="advanced-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAdvancedModal()">&times;</span>
+    <h2>Booking Summary</h2>
+    <p id="booking-summary"></p>
+    <button onclick="closeAdvancedModal()">Close</button>
+  </div>
+</div>
+
+<script>
+  function showAdvancedModal(event) {
+    event.preventDefault(); 
+    const arrival = document.getElementById("arrival").value;
+    const departure = document.getElementById("departure").value;
+    const adults = document.getElementById("adults").value;
+    const children = document.getElementById("children").value || 0;
+
+    const summary = `
+      <strong>Arrival Date:</strong> ${arrival} <br>
+      <strong>Departure Date:</strong> ${departure} <br>
+      <strong>Adults:</strong> ${adults} <br>
+      <strong>Children:</strong> ${children} <br>
+      Thank you for choosing our hotel! We will confirm your availability shortly.
+    `;
+    document.getElementById("booking-summary").innerHTML = summary;
+
+    document.getElementById("advanced-modal").style.display = "block";
+  }
+
+  function closeAdvancedModal() {
+    document.getElementById("advanced-modal").style.display = "none";
+  }
+
+</script>
+
+  <section class="about top" id="about">
+    <div class="container flex">
+      <div class="left">
+        <div class="heading">
+          <h2>Crowny Hotel</h2>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button class="primary-btn">ABOUT US</button>
+      </div>
+      <div class="right">
+        <img src="images/about.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="counter top">
+    <div class="container grid">
+      <div class="box">
+        <h1>2500</h1>
+        <hr>
+        <span>Customer</span>
+      </div>
+      <div class="box">
+        <h1>1250</h1>
+        <hr>
+        <span>Happy Customer</span>
+      </div>
+      <div class="box">
+        <h1>150</h1>
+        <hr>
+        <span>Expert Technicians</span>
+      </div>
+      <div class="box">
+        <h1>3550</h1>
+        <hr>
+        <span>Desktop Reaired</span>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
